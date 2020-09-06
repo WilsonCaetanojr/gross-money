@@ -1,5 +1,5 @@
 import React from "react";
-import {  StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
@@ -9,21 +9,20 @@ import Cadastro from "./src/pages/cadastro";
 import HomePage from "./src/pages/homePage";
 import { persistor, store } from "./src/store/store";
 
-
 const styleHeaderLogin = {
   title: "",
   headerStyle: {
     height: 0,
-    backgroundColor: "white"
-  }
+    backgroundColor: "white",
+  },
 };
 
 const styleHeaderGeneric = {
   title: "",
   headerStyle: {
     height: 30,
-    backgroundColor: "white"
-  }
+    backgroundColor: "white",
+  },
 };
 
 const Stack = createStackNavigator();
@@ -41,7 +40,7 @@ export default function App() {
               component={Login}
               options={styleHeaderLogin}
             />
-             <Stack.Screen
+            <Stack.Screen
               name="Cadastro"
               headerMode="none"
               component={Cadastro}

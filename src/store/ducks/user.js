@@ -1,29 +1,29 @@
 export const ActionTypes = {
   ADD_LOGIN: "user/ADD_LOGIN",
-  SET_CURRENT: "user/SET_CURRENT"
+  SET_CURRENT: "user/SET_CURRENT",
 };
 
 // Reducer
 const initialState = {
   userCurrent: false,
-  users: []
+  users: [],
 };
 
 export default function user(state = initialState, action) {
   switch (action.type) {
     case ActionTypes.ADD_LOGIN:
-      if(state.users.length > 0){
+      if (state.users.length > 0) {
         return {
           ...state,
           users: [...state.users, action.payload],
-          userCurrent: action.payload.name
-        };}
-      else {
+          userCurrent: action.payload.name,
+        };
+      } else {
         return {
           ...state,
           users: [action.payload],
-          userCurrent: action.payload.name
-        }
+          userCurrent: action.payload.name,
+        };
       }
 
     case ActionTypes.SET_CURRENT:
@@ -34,12 +34,12 @@ export default function user(state = initialState, action) {
 }
 
 // Action Creators
-export const addUser = user => ({
+export const addUser = (user) => ({
   type: ActionTypes.ADD_LOGIN,
-  payload: user
+  payload: user,
 });
 
-export const setUserCurrent = current => ({
+export const setUserCurrent = (current) => ({
   type: ActionTypes.SET_CURRENT,
-  payload: current
+  payload: current,
 });

@@ -6,13 +6,13 @@ import stockExchange from "./ducks/stockExchange";
 
 const reducers = combineReducers({
   user,
-  stockExchange
+  stockExchange,
 });
 
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  timeout: null
+  timeout: null,
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
