@@ -5,7 +5,7 @@ export const ActionTypes = {
 
 // Reducer
 const initialState = {
-  userCurrent: false,
+  userCurrent: {},
   users: [],
 };
 
@@ -16,13 +16,13 @@ export default function user(state = initialState, action) {
         return {
           ...state,
           users: [...state.users, action.payload],
-          userCurrent: action.payload.name,
+          userCurrent: action.payload,
         };
       } else {
         return {
           ...state,
           users: [action.payload],
-          userCurrent: action.payload.name,
+          userCurrent: action.payload,
         };
       }
 
