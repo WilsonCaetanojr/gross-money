@@ -1,15 +1,14 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {FontAwesome5, Octicons, AntDesign } from "@expo/vector-icons";
+import { FontAwesome5, Octicons, AntDesign } from "@expo/vector-icons";
 import HomePage from "../pages/homePage";
-import Account from "../pages/account"
-import Favorites from "../pages/favorites"
+import Account from "../pages/account";
+import Favorites from "../pages/favorites";
 
 function ContaComponent(navigation) {
   return <Account navigation={navigation}></Account>;
 }
-
 
 const Tab = createBottomTabNavigator();
 
@@ -19,35 +18,45 @@ export default function BottomNav({ navigation }) {
       style={styles.navBar}
       tabBarOptions={{
         activeTintColor: "white",
-        inactiveTintColor: "#00214D",
-        tabStyle: styles.navBar
+        inactiveTintColor: "#f4a526ad",
+        tabStyle: styles.navBar,
       }}
       tabStyle={styles.navBar}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           if (route.name === "Alta/Baixa") {
             return (
-                <Octicons name="graph" size={30}   color={focused ? "white" : "#00214D"} />
+              <Octicons
+                name="graph"
+                size={30}
+                color={focused ? "white" : "#f4a526ad"}
+              />
             );
-          }
-           else if (route.name === "Favoritos") {
+          } else if (route.name === "Favoritos") {
             return (
-                <AntDesign name="star" size={30}   color={focused ? "white" : "#00214D"} />
+              <AntDesign
+                name="star"
+                size={30}
+                color={focused ? "white" : "#f4a526ad"}
+              />
             );
-          } 
-          else if (route.name === "Conta") {
+          } else if (route.name === "Conta") {
             return (
               <FontAwesome5
                 name="user-alt"
                 size={30}
-                color={focused ? "white" : "#00214D"}
+                color={focused ? "white" : "#f4a526ad"}
               />
             );
           }
-        }
+        },
       })}
     >
-      <Tab.Screen name="Alta/Baixa" component={HomePage} navigation={navigation} />
+      <Tab.Screen
+        name="Alta/Baixa"
+        component={HomePage}
+        navigation={navigation}
+      />
       <Tab.Screen name="Favoritos" component={Favorites} />
       <Tab.Screen name="Conta" component={ContaComponent} />
     </Tab.Navigator>
@@ -56,6 +65,6 @@ export default function BottomNav({ navigation }) {
 
 const styles = StyleSheet.create({
   navBar: {
-    backgroundColor: "black"
-  }
+    backgroundColor: "black",
+  },
 });
