@@ -31,8 +31,6 @@ export default function Login({ navigation }) {
 
   const authLogin = async () => {
     try {
-      // if(passwordChange.substr(passwordChange.length - 1,1) === "1" ) return console.log("numbrrr")
-
       const userStorage = allUsers.findIndex(
         (user) => user.name.toLowerCase() === name.toLowerCase()
       );

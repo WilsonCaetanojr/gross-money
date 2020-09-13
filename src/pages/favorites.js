@@ -7,7 +7,6 @@ const Favorites = () => {
   const favorites = useSelector(({ stockExchange }) => stockExchange.favorites);
   const userCurrent = useSelector(({ user }) => user.userCurrent);
 
-  console.log(favorites);
   return (
     <View style={styles.container}>
       {favorites[userCurrent.name] && favorites[userCurrent.name].length > 0 ? (
