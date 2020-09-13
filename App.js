@@ -24,6 +24,7 @@ export default function App() {
               options={{
                 title: "",
                 headerBackTitle: null,
+                headerLeft: null,
                 headerTintColor: "#fff",
                 headerTitleStyle: {
                   fontWeight: "bold",
