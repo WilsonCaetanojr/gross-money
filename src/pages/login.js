@@ -49,7 +49,8 @@ export default function Login({ navigation }) {
         "/finance/stock_price?key=525d2244&symbol=get-low"
       );
 
-      if(high && low) dispatch(setValues({ high: high.results, low: low.results }));
+      if (high && low)
+        dispatch(setValues({ high: high.results, low: low.results }));
 
       return true;
     } catch (error) {
@@ -71,12 +72,14 @@ export default function Login({ navigation }) {
         return false;
       }
     }
-    
+
     return true;
   };
 
   const authLogin = async () => {
     try {
+      // return navigation.navigate("HomePage");
+
       if (!(await confirmPermissions())) return;
 
       const cryptoPassword = await Crypto.digestStringAsync(
@@ -88,14 +91,14 @@ export default function Login({ navigation }) {
         (user) => user.name === name && user.cryptoPassword === cryptoPassword
       );
 
-      if (userStorage) {
+      if (!userStorage) {
         setLoading(false);
         return setAlertMessage("E-mail ou senha inválidos.");
       }
 
-      getValues();
+      if (!getValues()) setAlertMessage("Falha ao acessar bolsa de valores.");
 
-      dispatch(setUserCurrent(userStorage.name));
+      dispatch(setUserCurrent(userStorage));
 
       setLoading(false);
       refEmail.current.clear();
@@ -113,7 +116,7 @@ export default function Login({ navigation }) {
 
   if (loadingState)
     return (
-      <ActivityIndicator style={styles.loading} size="large" color="black" />
+      <ActivityIndicator style={styles.loading} size="large" color="white" />
     );
 
   return (
@@ -126,7 +129,7 @@ export default function Login({ navigation }) {
           <TextInput
             ref={refEmail}
             placeholder="Nome"
-            placeholderTextColor="black"
+            placeholderTextColor="white"
             value={name}
             style={styles.textInputEmail}
             onChangeText={(nameChange) => setName(nameChange)}
@@ -146,13 +149,13 @@ export default function Login({ navigation }) {
             <Entypo
               name={hidePassword ? "eye-with-line" : "eye"}
               size={20}
-              color="black"
+              color="white"
             />
           </TouchableOpacity>
           <TextInput
             ref={refSenha}
             placeholder="Senha"
-            placeholderTextColor="black"
+            placeholderTextColor="white"
             secureTextEntry={hidePassword}
             value={password}
             style={styles.textInputPassword}
@@ -201,15 +204,16 @@ const styles = StyleSheet.create({
     marginBottom: "10%",
   },
   logo: {
-    width: "100%",
-    height: "100%",
+    marginTop: "5%",
+    width: "80%",
+    height: "90%",
   },
   backgroundImage: {
     flex: 1,
   },
   button: {
     marginTop: "10%",
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 1,
     borderRadius: 20,
     height: 40,
@@ -219,33 +223,30 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   textButton: {
-    color: "black",
+    color: "white",
   },
   textInputEmail: {
-    color: "black",
+    color: "white",
     alignSelf: "stretch",
     paddingBottom: 10,
     marginLeft: 50,
     marginBottom: "3%",
     marginRight: 50,
-    borderBottomColor: "black",
+    borderBottomColor: "white",
     borderBottomWidth: 3,
   },
   textInputPassword: {
-    color: "black",
+    color: "white",
     alignSelf: "stretch",
     paddingBottom: 10,
     marginLeft: 50,
     marginBottom: "3%",
     marginRight: 50,
-    borderBottomColor: "black",
+    borderBottomColor: "white",
     borderBottomWidth: 3,
   },
   containerForm: {
     alignItems: "center",
-  },
-  textCheck: {
-    color: "black",
   },
   loading: {
     width: "100%",
