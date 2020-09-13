@@ -8,22 +8,28 @@ const Account = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ marginTop: "5%" }}>
-        <Avatar
-          titleStyle={{ color: "white" }}
-          containerStyle={{ backgroundColor: "black" }}
-          avatarStyle={{
-            borderColor: "#00214D",
-            borderWidth: 3,
-            backgroundColor: "#ffffff00",
-          }}
-          size="xlarge"
-          rounded
-          title={userCurrent.name.substring(0, 1)}
-          activeOpacity={0.7}
-        />
-      </View>
-      <Text style={styles.nameUser}>{userCurrent.name}</Text>
+      {userCurrent && userCurrent.name ? (
+        <>
+          <View style={{ marginTop: "19%" }}>
+            <Avatar
+              titleStyle={{ color: "white" }}
+              containerStyle={{ backgroundColor: "black" }}
+              avatarStyle={{
+                borderColor: "#00214D",
+                borderWidth: 3,
+                backgroundColor: "#ffffff00",
+              }}
+              size="xlarge"
+              rounded
+              title={userCurrent.name.substring(0, 1)}
+              activeOpacity={0.7}
+            />
+          </View>
+          <Text style={styles.nameUser}>{userCurrent.name}</Text>
+        </>
+      ) : (
+        <Text style={styles.title}>Usuário não encontrado</Text>
+      )}
       <TouchableOpacity
         style={styles.buttomSair}
         onPress={() =>
@@ -81,6 +87,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: "28%",
     color: "gray",
+  },
+  title: {
+    fontSize: 25,
+    color: "#00214D",
+    marginBottom: "5%",
+    marginTop: "40%",
   },
 });
 
