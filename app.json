@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "gross_money",
-    "slug": "gross_money",
+    "name": "GrossMoney",
+    "slug": "GrossMoney",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,8 +19,11 @@
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "com.wilson.grossmoney",
+      "adaptiveIcon": {
+        "backgroundColor": "#1C3252"
+      }
     }
   }
 }
