@@ -49,11 +49,12 @@ const CustomCard = ({
   }, []);
 
   useEffect(() => {
+    if(favoritesStorage[userCurrent.name]){
     const findFavorite = favoritesStorage[userCurrent.name].find(
       (fav) => fav.symbol === symbol
     );
     if (findFavorite) return setFavorite(true);
-
+    }
     setFavorite(false);
   }, [favoritesStorage, userCurrent, symbol]);
 

@@ -96,7 +96,7 @@ export default function Login({ navigation }) {
         return setAlertMessage("E-mail ou senha inválidos.");
       }
 
-      if (!getValues()) setAlertMessage("Falha ao acessar bolsa de valores.");
+      // if (!getValues()) setAlertMessage("Falha ao acessar bolsa de valores.");
 
       dispatch(setUserCurrent(userStorage));
 
@@ -148,13 +148,14 @@ export default function Login({ navigation }) {
           >
             <Entypo
               name={hidePassword ? "eye-with-line" : "eye"}
-              size={20}
+              size={30}
               color="white"
             />
           </TouchableOpacity>
           <TextInput
             ref={refSenha}
             placeholder="Senha"
+            keyboardType="numeric"
             placeholderTextColor="white"
             secureTextEntry={hidePassword}
             value={password}
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: 40,
     width: 100,
-    backgroundColor: "transparent",
+    backgroundColor: "#131D2C",
     alignItems: "center",
     justifyContent: "center",
   },
