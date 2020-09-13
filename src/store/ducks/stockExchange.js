@@ -19,8 +19,7 @@ export default function user(state = initialState, action) {
 
     case ActionTypes.ADD_FAVORITES: {
       const favorites = { ...state.favorites };
-
-      console.log(action.payload);
+      
       if (!state.favorites[action.payload.userName]) {
         favorites[action.payload.userName] = [];
         favorites[action.payload.userName].push(action.payload.dataAction);
