@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Crypto from "expo-crypto";
 import { Entypo } from "@expo/vector-icons";
 import CustomAlert from "../components/customAlert";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/cadastro.png";
 import { addUser } from "../store/ducks/user";
 
 export default function Login({ navigation }) {
@@ -118,12 +118,13 @@ export default function Login({ navigation }) {
         >
           <Entypo
             name={hidePassword ? "eye-with-line" : "eye"}
-            size={20}
+            size={30}
             color="black"
           />
         </TouchableOpacity>
         <TextInput
           ref={refPassword}
+          keyboardType="numeric"
           placeholder="Senha"
           placeholderTextColor="black"
           secureTextEntry={hidePassword}
@@ -134,6 +135,7 @@ export default function Login({ navigation }) {
         <TextInput
           ref={refPasswordConfirm}
           placeholder="Repita Senha"
+          keyboardType="numeric"
           placeholderTextColor="black"
           secureTextEntry={hidePassword}
           value={passwordConfirm}
@@ -183,11 +185,11 @@ const styles = StyleSheet.create({
   },
   button: {
     borderColor: "black",
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 20,
     height: 40,
     width: 100,
-    backgroundColor: "transparent",
+    backgroundColor: "#00D173",
     alignItems: "center",
     justifyContent: "center",
   },
