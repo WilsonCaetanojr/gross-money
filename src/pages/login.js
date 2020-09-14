@@ -96,7 +96,7 @@ export default function Login({ navigation }) {
         return setAlertMessage("E-mail ou senha inválidos.");
       }
 
-      // if (!getValues()) setAlertMessage("Falha ao acessar bolsa de valores.");
+      if (! await getValues()) setAlertMessage("Falha ao acessar bolsa de valores.");
 
       dispatch(setUserCurrent(userStorage));
 
@@ -170,7 +170,7 @@ export default function Login({ navigation }) {
                   return navigation.navigate("Cadastro");
                 }}
               >
-                <Text style={styles.textButton}>Casastrar</Text>
+                <Text style={styles.textButton}>Cadastrar</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.itemButton}>
