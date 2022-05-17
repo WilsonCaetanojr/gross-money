@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://imgur.com/jTqhXtj.png" alt="Gross Money" width="350"/>
+   <img src="https://imgur.com/j2vOwsB.png" alt="Gross Money" width="400"/>
 </p>
 
 Application for consulting and controlling the equity of the Brazilian stock exchange made with **React Native**.
